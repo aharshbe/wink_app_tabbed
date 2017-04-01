@@ -66,7 +66,27 @@ public class MainActivity extends AppCompatActivity {
 
             person_1_count = (TextView) findViewById(R.id.Person_1_Count);
 
+            //Adding logic to add shared pref to the incrementer
 
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+            if (prefs.getBoolean("MyPref", true)) {
+
+                int person_1_count_shared_to_add = pref.getInt("Saved_person_1_winks", 0);
+
+                String string_count = String.valueOf(person_1_count_shared_to_add+1);
+
+                person_1_count.setText(string_count);
+
+                string_count_int_person_1 = Integer.valueOf(string_count);
+
+                editor.putInt("Saved_person_1_winks", string_count_int_person_1);
+
+                editor.commit();
+
+                Log.d("Number in the editor", String.valueOf(string_count_int_person_1));
+
+
+            }else{
                 String string_count = String.valueOf(count_person1++);
 
                 person_1_count.setText(string_count);
@@ -81,25 +101,13 @@ public class MainActivity extends AppCompatActivity {
 
                 Log.d("Number in the editor", String.valueOf(string_count_int_person_1));
 
+            }
+
+
+
 
 
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -108,18 +116,41 @@ public class MainActivity extends AppCompatActivity {
 
         person_2_count = (TextView) findViewById(R.id.Person_2_Count);
 
-        String string_count = String.valueOf(count_person2++);
 
-        person_2_count.setText(string_count);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        if (prefs.getBoolean("MyPref", true)){
 
-        // Trying Shared Prefs
-        string_count_int_person_2 = Integer.valueOf(string_count);
+            int person_2_count_shared_to_add = pref.getInt("Saved_person_2_winks", 0);
 
-        editor.putInt("Saved_person_2_winks", string_count_int_person_2);
+            String string_count = String.valueOf(person_2_count_shared_to_add+1);
 
-        editor.commit();
+            person_2_count.setText(string_count);
 
-        Log.d("Number in the editor", String.valueOf(string_count_int_person_2));
+            string_count_int_person_2 = Integer.valueOf(string_count);
+
+            editor.putInt("Saved_person_2_winks", string_count_int_person_2);
+
+            editor.commit();
+
+            Log.d("Number in the editor", String.valueOf(string_count_int_person_2));
+
+        }else {
+
+
+
+            String string_count = String.valueOf(count_person2++);
+
+            person_2_count.setText(string_count);
+
+            // Trying Shared Prefs
+            string_count_int_person_2 = Integer.valueOf(string_count);
+
+            editor.putInt("Saved_person_2_winks", string_count_int_person_2);
+
+            editor.commit();
+
+            Log.d("Number in the editor", String.valueOf(string_count_int_person_2));
+        }
 
 
     }
