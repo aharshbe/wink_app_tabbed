@@ -2,6 +2,7 @@ package com.example.aharshberger.myapplication;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     int count_person1 = 1;
     int count_person2 = 1;
+    int string_count_int_person_1;
     SharedPreferences pref;
     SharedPreferences.Editor editor;
 
@@ -40,6 +42,21 @@ public class MainActivity extends AppCompatActivity {
         person_1_count = (TextView) findViewById(R.id.Person_1_Count);
         person_2_count = (TextView) findViewById(R.id.Person_2_Count);
 
+        // Creating Shared Prefs
+
+        pref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
+        editor = pref.edit();
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        if (prefs.getBoolean("MyPref", true)) {
+
+            person_1_count.setText(String.valueOf(pref.getInt("Saved_person_1_winks", 0)));
+        }
+
+
+
+
+
 
     }
 
@@ -48,20 +65,41 @@ public class MainActivity extends AppCompatActivity {
 
             person_1_count = (TextView) findViewById(R.id.Person_1_Count);
 
-            if (count_person1 == 0){
-
-                count_person1 = 1;
-
-            }else{
 
                 String string_count = String.valueOf(count_person1++);
 
                 person_1_count.setText(string_count);
 
+                //////Shared Prefs
 
-            }
+                string_count_int_person_1 = Integer.valueOf(string_count);
+
+                editor.putInt("Saved_person_1_winks", string_count_int_person_1);
+
+                editor.commit();
+
+                Log.d("Number in the editor", String.valueOf(string_count_int_person_1));
+
+
 
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -71,11 +109,26 @@ public class MainActivity extends AppCompatActivity {
 
         String string_count = String.valueOf(count_person2++);
 
-
         person_2_count.setText(string_count);
+
+        // Trying Shared Prefsgit
+
 
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     public void clicking_reset_person_1(View view) {
