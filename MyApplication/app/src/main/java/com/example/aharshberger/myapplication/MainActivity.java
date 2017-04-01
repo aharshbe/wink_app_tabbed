@@ -18,8 +18,9 @@ public class MainActivity extends AppCompatActivity {
     int count_person1 = 1;
     int count_person2 = 1;
     int string_count_int_person_1, string_count_int_person_2;
-    SharedPreferences pref;
-    SharedPreferences.Editor editor;
+    SharedPreferences pref, pref_names;
+    SharedPreferences.Editor editor, editor_names;
+    Intent intent;
 
 
     TextView person_1, person_2, person_1_count, person_2_count;
@@ -29,16 +30,48 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Intent intent = getIntent();
-        String name1_received = intent.getStringExtra("person_1_name_sent");
-        String name2_received = intent.getStringExtra("person_2_name_sent");
+        pref_names = getApplicationContext().getSharedPreferences("MyPref_names", MODE_PRIVATE);
+        editor_names = pref_names.edit();
 
-        person_1 = (TextView) findViewById(R.id.person_1);
-        person_2 = (TextView) findViewById(R.id.person_2);
+         intent = getIntent();
+         String name1_received_sp = intent.getStringExtra("person_1_name_sent");
+         String name2_received_sp = intent.getStringExtra("person_2_name_sent");
 
-        person_1.setText(name1_received);
-        person_2.setText(name2_received);
+         editor_names.putString("Name1_saved", name1_received_sp);
+         editor_names.putString("Name2_saved", name2_received_sp);
 
+         editor_names.commit();
+
+         Log.d("checking name", pref_names.getString("Name1_saved","Austin"));
+
+
+        SharedPreferences prefs_names = PreferenceManager.getDefaultSharedPreferences(this);
+        if (prefs_names.getBoolean("MyPref_names", true)) {
+
+            person_1 = (TextView) findViewById(R.id.person_1);
+            person_2 = (TextView) findViewById(R.id.person_2);
+
+            String person_1_name_saved = pref_names.getString("Name1_saved","Austin");
+            String person_2_name_saved = pref_names.getString("Name2_saved","Bryan");
+
+            person_1.setText(person_1_name_saved);
+            person_2.setText(person_2_name_saved);
+
+
+
+        }else{
+
+            Intent intent = getIntent();
+            String name1_received = intent.getStringExtra("person_1_name_sent");
+            String name2_received = intent.getStringExtra("person_2_name_sent");
+
+            person_1 = (TextView) findViewById(R.id.person_1);
+            person_2 = (TextView) findViewById(R.id.person_2);
+
+            person_1.setText(name1_received);
+            person_2.setText(name2_received);
+
+        }
         person_1_count = (TextView) findViewById(R.id.Person_1_Count);
         person_2_count = (TextView) findViewById(R.id.Person_2_Count);
 
@@ -158,17 +191,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
     public void clicking_reset_person_1(View view) {
 
 
@@ -179,6 +201,9 @@ public class MainActivity extends AppCompatActivity {
         String string_count_reset_person1 = String.valueOf(count_person1);
 
         person_1_count.setText(string_count_reset_person1);
+
+        editor.clear();
+        editor.commit();
     }
 
     public void clicking_reset_person_2(View view) {
@@ -191,6 +216,9 @@ public class MainActivity extends AppCompatActivity {
 
         person_2_count.setText(string_count_reset_person2);
 
+        editor.clear();
+        editor.commit();
+
 
     }
 
@@ -198,6 +226,11 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, Main2Activity.class);
         startActivity(intent);
+
+        editor_names.clear();
+        editor_names.commit();
+
+        Log.d("Clicked back to remove", "Edited");
     }
 
 }
