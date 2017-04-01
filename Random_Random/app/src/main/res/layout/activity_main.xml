@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.aharshberger.random_random.MainActivity">
+
+    <TextView
+        android:id="@+id/person_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Person 1"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="54dp" />
+
+    <TextView
+        android:id="@+id/persosn_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Person 2"
+        tools:layout_editor_absoluteX="256dp"
+        tools:layout_editor_absoluteY="54dp" />
+
+    <Button
+        android:id="@+id/person_1_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add look"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="136dp" />
+
+    <Button
+        android:id="@+id/person_2_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add look"
+        tools:layout_editor_absoluteX="246dp"
+        tools:layout_editor_absoluteY="136dp" />
+</android.support.constraint.ConstraintLayout>
