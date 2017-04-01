@@ -230,6 +230,8 @@ public class MainActivity extends AppCompatActivity {
         editor_names.clear();
         editor_names.commit();
 
+
+
         Log.d("Clicked back to remove", "Edited");
     }
 
