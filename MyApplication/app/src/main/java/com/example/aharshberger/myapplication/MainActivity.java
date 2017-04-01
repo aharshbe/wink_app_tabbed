@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     int count_person1 = 1;
     int count_person2 = 1;
-    int string_count_int_person_1;
+    int string_count_int_person_1, string_count_int_person_2;
     SharedPreferences pref;
     SharedPreferences.Editor editor;
 
@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         if (prefs.getBoolean("MyPref", true)) {
 
             person_1_count.setText(String.valueOf(pref.getInt("Saved_person_1_winks", 0)));
+            person_2_count.setText(String.valueOf(pref.getInt("Saved_person_2_winks", 0)));
         }
 
 
@@ -111,8 +112,14 @@ public class MainActivity extends AppCompatActivity {
 
         person_2_count.setText(string_count);
 
-        // Trying Shared Prefsgit
+        // Trying Shared Prefs
+        string_count_int_person_2 = Integer.valueOf(string_count);
 
+        editor.putInt("Saved_person_2_winks", string_count_int_person_2);
+
+        editor.commit();
+
+        Log.d("Number in the editor", String.valueOf(string_count_int_person_2));
 
 
     }
