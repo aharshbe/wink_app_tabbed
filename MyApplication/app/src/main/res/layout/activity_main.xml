@@ -12,12 +12,16 @@
         android:layout_height="wrap_content"
         android:text="reset"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.87"
+        app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.46"
-        android:onClick="clicking_reset_person_2"/>
+        app:layout_constraintVertical_bias="0.736"
+        android:onClick="clicking_reset_person_2"
+        android:background="#ad1a2c"
+        android:textColor="@android:color/white"
+        android:fontFamily="cursive"
+        android:textStyle="bold"/>
 
     <Button
         android:id="@+id/reset_person_1"
@@ -25,12 +29,16 @@
         android:layout_height="wrap_content"
         android:text="Reset"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.054"
+        app:layout_constraintHorizontal_bias="0.049"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.46"
-        android:onClick="clicking_reset_person_1"/>
+        app:layout_constraintVertical_bias="0.735"
+        android:onClick="clicking_reset_person_1"
+        android:background="#ad1a2c"
+        android:textColor="@android:color/white"
+        android:fontFamily="cursive"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/Person_1_Count"
@@ -38,11 +46,15 @@
         android:layout_height="wrap_content"
         android:text="Person_1_Count"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.048"
+        app:layout_constraintHorizontal_bias="0.016"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.18" />
+        app:layout_constraintVertical_bias="0.326"
+        android:textColor="#ad1a2c"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:fontFamily="cursive"/>
 
     <TextView
         android:id="@+id/Person_2_Count"
@@ -50,11 +62,15 @@
         android:layout_height="wrap_content"
         android:text="Person_2_Count"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.908"
+        app:layout_constraintHorizontal_bias="0.931"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.18" />
+        app:layout_constraintVertical_bias="0.324"
+        android:textColor="#ad1a2c"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:fontFamily="cursive"/>
 
     <TextView
         android:id="@+id/person_2"
@@ -62,11 +78,15 @@
         android:layout_height="wrap_content"
         android:text="Person 2"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.909"
+        app:layout_constraintHorizontal_bias="0.911"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.109" />
+        app:layout_constraintVertical_bias="0.166"
+        android:textColor="#ad1a2c"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:fontFamily="cursive"/>
 
     <TextView
         android:id="@+id/person_1"
@@ -74,11 +94,15 @@
         android:layout_height="wrap_content"
         android:text="Person 1"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.048"
+        app:layout_constraintHorizontal_bias="0.049"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.109" />
+        app:layout_constraintVertical_bias="0.168"
+        android:textColor="#ad1a2c"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:fontFamily="cursive"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -89,7 +113,11 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.032" />
+        app:layout_constraintVertical_bias="0.032"
+        android:textColor="#ad1a2c"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:fontFamily="cursive" />
 
     <Button
         android:id="@+id/person_1_button"
@@ -97,12 +125,16 @@
         android:layout_height="wrap_content"
         android:text="Add wink"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.054"
+        app:layout_constraintHorizontal_bias="0.049"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.321"
-        android:onClick="clicking_wink_person_1"/>
+        app:layout_constraintVertical_bias="0.499"
+        android:onClick="clicking_wink_person_1"
+        android:background="#ad1a2c"
+        android:textColor="@android:color/white"
+        android:fontFamily="cursive"
+        android:textStyle="bold"/>
 
     <Button
         android:id="@+id/person_2_button"
@@ -110,12 +142,16 @@
         android:layout_height="wrap_content"
         android:text="ADD WINK"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.87"
+        app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.321"
-        android:onClick="clicking_wink_person_2"/>
+        app:layout_constraintVertical_bias="0.499"
+        android:onClick="clicking_wink_person_2"
+        android:background="#ad1a2c"
+        android:textColor="@android:color/white"
+        android:fontFamily="cursive"
+        android:textStyle="bold"/>
 
     <Button
         android:id="@+id/go_back"
@@ -123,11 +159,15 @@
         android:layout_height="wrap_content"
         android:text="Edit People"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.058"
+        app:layout_constraintHorizontal_bias="0.538"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.699"
-        android:onClick="clicking_back_to_activity"/>
+        app:layout_constraintVertical_bias="0.927"
+        android:onClick="clicking_back_to_activity"
+        android:background="#ad1a2c"
+        android:textColor="@android:color/white"
+        android:fontFamily="cursive"
+        android:textStyle="bold"/>
 
 </android.support.constraint.ConstraintLayout>

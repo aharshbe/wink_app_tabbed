@@ -58,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
             person_2.setText(person_2_name_saved);
 
 
-
         }else{
 
             Intent intent = getIntent();
@@ -86,9 +85,6 @@ public class MainActivity extends AppCompatActivity {
             person_1_count.setText(String.valueOf(pref.getInt("Saved_person_1_winks", 0)));
             person_2_count.setText(String.valueOf(pref.getInt("Saved_person_2_winks", 0)));
         }
-
-
-
 
 
 
@@ -137,12 +133,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
 
-
-
-
         }
-
-
 
 
     public void clicking_wink_person_2(View view) {
