@@ -337,33 +337,6 @@ public class MainActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
-    public void creatingnewinstance(View view) {
-
-
-        AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
-
-        builder1.setIcon(R.mipmap.ic_launcher_wink);
-        builder1.setTitle(" ");
-        builder1.setMessage(pref.getString("Saved_person_1_name", "Player 1") + " Vs. " + pref.getString("Saved_person_2_name", "Player 2"));
-        builder1.setCancelable(true);
-
-        builder1.setPositiveButton(
-                "Let's go!",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-        AlertDialog alert11 = builder1.create();
-        alert11.show();
-
-        getSharedPreferences("PREFERENCE", MODE_PRIVATE)
-                .edit()
-                .putBoolean("isFirstRun", false)
-                .apply();
-
-    }
-
     public void clickingTextViewP1(View view) {
         // get prompts.xml view
         LayoutInflater li = LayoutInflater.from(this);
@@ -462,6 +435,33 @@ public class MainActivity extends AppCompatActivity {
 
         // show it
         alertDialog.show();
+
+    }
+
+    public void clickingSmiley(View view)
+    {
+
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+
+        builder1.setIcon(R.mipmap.ic_launcher_wink);
+        builder1.setTitle(" ");
+        builder1.setMessage(pref.getString("Saved_person_1_name", "Player 1") + " Vs. " + pref.getString("Saved_person_2_name", "Player 2"));
+        builder1.setCancelable(true);
+
+        builder1.setPositiveButton(
+                "Let's go!",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert11 = builder1.create();
+        alert11.show();
+
+        getSharedPreferences("PREFERENCE", MODE_PRIVATE)
+                .edit()
+                .putBoolean("isFirstRun", false)
+                .apply();
 
     }
 }
