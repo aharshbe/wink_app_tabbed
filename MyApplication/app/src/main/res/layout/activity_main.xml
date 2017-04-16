@@ -6,17 +6,29 @@
     android:layout_height="match_parent"
     tools:context="com.example.aharshberger.myapplication.MainActivity">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@mipmap/ic_launcher_wink"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.479"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.009" />
+
     <Button
         android:id="@+id/reset_person_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="reset"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.605"
+        app:layout_constraintVertical_bias="0.601"
         android:onClick="clicking_reset_person_2"
         android:background="#ad1a2c"
         android:textColor="@android:color/white"
@@ -32,11 +44,11 @@
         android:text=" Change Player 2 "
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintHorizontal_bias="0.942"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.715" />
+        app:layout_constraintVertical_bias="0.938" />
 
     <Button
         android:id="@+id/reset_person_1"
@@ -44,11 +56,11 @@
         android:layout_height="wrap_content"
         android:text=" Change Player 1 "
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintHorizontal_bias="0.057"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.713"
+        app:layout_constraintVertical_bias="0.94"
         android:onClick="clicking_change_player_1"
         android:background="#ad1a2c"
         android:textColor="@android:color/white"
@@ -108,15 +120,15 @@
         android:layout_height="wrap_content"
         android:text="Player 2"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.911"
+        app:layout_constraintHorizontal_bias="0.895"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.166"
+        app:layout_constraintVertical_bias="0.207"
         android:textColor="#ad1a2c"
-        android:textSize="28sp"
+        android:textSize="35sp"
         android:textStyle="bold"
-        android:fontFamily="serif"/>
+        android:fontFamily="cursive"/>
 
     <TextView
         android:id="@+id/person_1"
@@ -124,26 +136,27 @@
         android:layout_height="wrap_content"
         android:text="Player 1"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintHorizontal_bias="0.053"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.168"
+        app:layout_constraintVertical_bias="0.208"
         android:textColor="#ad1a2c"
-        android:textSize="28sp"
+        android:textSize="30sp"
         android:textStyle="bold"
-        android:fontFamily="serif"/>
+        android:fontFamily="casual"/>
 
     <TextView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.464"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.032"
-        android:background="@mipmap/ic_launcher_wink" />
+        app:layout_constraintVertical_bias="0.94"
+        android:background="@mipmap/ic_help"
+        android:onClick="clickingHelp"/>
 
     <Button
         android:id="@+id/person_1_button"
@@ -168,7 +181,7 @@
         android:layout_height="wrap_content"
         android:text="ADD WINK"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -179,21 +192,21 @@
         android:fontFamily="serif"
         android:textStyle="bold"/>
 
-    <Button
-        android:id="@+id/go_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Change Players"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.926"
-        android:onClick="clicking_back_to_activity"
-        android:background="#ad1a2c"
-        android:textColor="@android:color/white"
-        android:fontFamily="serif"
-        android:paddingRight="10dp"
-        android:paddingLeft="10dp"/>
+    <!--<Button-->
+        <!--android:id="@+id/go_back"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Change Players"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent"-->
+        <!--app:layout_constraintVertical_bias="0.926"-->
+        <!--android:onClick="clicking_back_to_activity"-->
+        <!--android:background="#ad1a2c"-->
+        <!--android:textColor="@android:color/white"-->
+        <!--android:fontFamily="serif"-->
+        <!--android:paddingRight="10dp"-->
+        <!--android:paddingLeft="10dp"/>-->
 
 </android.support.constraint.ConstraintLayout>

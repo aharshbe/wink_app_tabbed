@@ -24,8 +24,7 @@ public class MainActivity extends AppCompatActivity {
     int string_count_int_person_1, string_count_int_person_2;
     SharedPreferences pref;
     SharedPreferences.Editor editor, editor_names;
-    Intent intent;
-    String person_1_name_saved, person_2_name_saved, getting_person_1_name_from_sp;
+    String person_1_name_saved, person_2_name_saved;
 
 
     TextView person_1, person_2, person_1_count, person_2_count;
@@ -35,45 +34,43 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        pref = getApplicationContext().getSharedPreferences("prefs", MODE_PRIVATE);
-        editor_names = pref.edit();
-
-         intent = getIntent();
-         String name1_received_sp = intent.getStringExtra("person_1_name_sent");
-         String name2_received_sp = intent.getStringExtra("person_2_name_sent");
-
-         editor_names.putString("Name1_saved", name1_received_sp);
-         editor_names.putString("Name2_saved", name2_received_sp);
-
-         editor_names.commit();
+         pref = getApplicationContext().getSharedPreferences("prefs", MODE_PRIVATE);
+         editor_names = pref.edit();
 
 
-        SharedPreferences prefs_names = PreferenceManager.getDefaultSharedPreferences(this);
-        if (prefs_names.getBoolean("MyPref_names", true)) {
 
-            person_1 = (TextView) findViewById(R.id.person_1);
-            person_2 = (TextView) findViewById(R.id.person_2);
+            boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE).getBoolean("isFirstRun", true);
+            if (isFirstRun){
 
-            String person_1_name_saved = pref.getString("Name1_saved",null);
-            String person_2_name_saved = pref.getString("Name2_saved",null);
+                AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
 
-            person_1.setText(person_1_name_saved);
-            person_2.setText(person_2_name_saved);
+                builder1.setIcon(R.mipmap.ic_launcher_wink);
+
+                builder1.setTitle("Welcome to Wink Tracker!");
+
+                builder1.setMessage("To play, just change the name of each player and start adding up the winks.");
+
+                builder1.setCancelable(true);
+
+                builder1.setPositiveButton(
+                        "Sounds good!",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog alert11 = builder1.create();
+                alert11.show();
+
+                getSharedPreferences("PREFERENCE", MODE_PRIVATE)
+                        .edit()
+                        .putBoolean("isFirstRun", false)
+                        .apply();
+            }
 
 
-        }else{
-
-            Intent intent = getIntent();
-            String name1_received = intent.getStringExtra("person_1_name_sent");
-            String name2_received = intent.getStringExtra("person_2_name_sent");
-
-            person_1 = (TextView) findViewById(R.id.person_1);
-            person_2 = (TextView) findViewById(R.id.person_2);
-
-            person_1.setText(name1_received);
-            person_2.setText(name2_received);
-
-        }
+        person_1 = (TextView) findViewById(R.id.person_1);
+        person_2 = (TextView) findViewById(R.id.person_2);
         person_1_count = (TextView) findViewById(R.id.Person_1_Count);
         person_2_count = (TextView) findViewById(R.id.Person_2_Count);
 
@@ -87,17 +84,39 @@ public class MainActivity extends AppCompatActivity {
 
             person_1_count.setText(String.valueOf(pref.getInt("Saved_person_1_winks", 0)));
             person_2_count.setText(String.valueOf(pref.getInt("Saved_person_2_winks", 0)));
-            person_1.setText(pref.getString("Saved_person_1_name", null));
-            person_2.setText(pref.getString("Saved_person_2_name", null));
 
+            person_1.setText(pref.getString("Saved_person_1_name", "Player 1"));
+            person_2.setText(pref.getString("Saved_person_2_name", "Player 2"));
         }
-
-
 
     }
 
+    public void clickingHelp(View view) {
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
 
-        public void clicking_wink_person_1 (View view) {
+        builder1.setIcon(R.mipmap.ic_launcher_wink);
+        builder1.setTitle("Needed help huh?");
+        builder1.setMessage("To play, just change the name of each player and start adding up the winks.");
+        builder1.setCancelable(true);
+
+        builder1.setPositiveButton(
+                "Sounds good!",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert11 = builder1.create();
+        alert11.show();
+
+        getSharedPreferences("PREFERENCE", MODE_PRIVATE)
+                .edit()
+                .putBoolean("isFirstRun", false)
+                .apply();
+
+    }
+
+    public void clicking_wink_person_1 (View view) {
 
             person_1_count = (TextView) findViewById(R.id.Person_1_Count);
 
@@ -140,7 +159,6 @@ public class MainActivity extends AppCompatActivity {
 
 
         }
-
 
     public void clicking_wink_person_2(View view) {
 
@@ -185,9 +203,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-
-
     public void clicking_reset_person_1(View view) {
 
 
@@ -217,14 +232,6 @@ public class MainActivity extends AppCompatActivity {
         editor.commit();
 
 
-    }
-
-    public void clicking_back_to_activity(View view) {
-
-        Intent intent = new Intent(this, Main2Activity.class);
-        startActivity(intent);
-
-        Log.d("Clicked back to remove", "Edited");
     }
 
     public void clicking_change_player_2(View view) {
