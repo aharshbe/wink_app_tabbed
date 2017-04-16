@@ -338,10 +338,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void creatingnewinstance(View view) {
+
+
         AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
 
         builder1.setIcon(R.mipmap.ic_launcher_wink);
-        builder1.setTitle(person_1_name_saved + " Vs. " + person_2_name_saved);
+        builder1.setTitle(" ");
+        builder1.setMessage(pref.getString("Saved_person_1_name", "Player 1") + " Vs. " + pref.getString("Saved_person_2_name", "Player 2"));
         builder1.setCancelable(true);
 
         builder1.setPositiveButton(
