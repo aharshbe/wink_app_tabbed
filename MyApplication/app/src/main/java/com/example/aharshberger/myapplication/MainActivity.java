@@ -1,12 +1,16 @@
 package com.example.aharshberger.myapplication;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -21,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences pref;
     SharedPreferences.Editor editor, editor_names;
     Intent intent;
+    String person_1_name_saved, person_2_name_saved, getting_person_1_name_from_sp;
 
 
     TextView person_1, person_2, person_1_count, person_2_count;
@@ -82,6 +87,9 @@ public class MainActivity extends AppCompatActivity {
 
             person_1_count.setText(String.valueOf(pref.getInt("Saved_person_1_winks", 0)));
             person_2_count.setText(String.valueOf(pref.getInt("Saved_person_2_winks", 0)));
+            person_1.setText(pref.getString("Saved_person_1_name", null));
+            person_2.setText(pref.getString("Saved_person_2_name", null));
+
         }
 
 
@@ -216,12 +224,111 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, Main2Activity.class);
         startActivity(intent);
 
-        editor_names.clear();
-        editor_names.commit();
-
-
-
         Log.d("Clicked back to remove", "Edited");
     }
 
+    public void clicking_change_player_2(View view) {
+
+        // get prompts.xml view
+        LayoutInflater li = LayoutInflater.from(this);
+        View promptsView = li.inflate(R.layout.diagloguebox, null);
+
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                this);
+
+        // set prompts.xml to alertdialog builder
+        alertDialogBuilder.setView(promptsView);
+
+        final EditText userInput = (EditText) promptsView
+                .findViewById(R.id.editTextDialogUserInput);
+
+        // set dialog message
+        alertDialogBuilder
+                .setCancelable(false)
+                .setPositiveButton("OK",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,int id) {
+                                // get user input and set it to result
+                                // edit text
+
+                                person_2.setText(userInput.getText());
+
+                                // Trying Shared Prefs
+                                person_2_name_saved = userInput.getText().toString();
+
+                                editor.putString("Saved_person_2_name", person_2_name_saved);
+
+                                editor.commit();
+
+                                Log.d("Changed name to: ", person_2_name_saved);
+                            }
+
+                        })
+                .setNegativeButton("Cancel",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,int id) {
+                                dialog.cancel();
+                            }
+                        });
+
+        // create alert dialog
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // show it
+        alertDialog.show();
+
+
+    }
+
+    public void clicking_change_player_1(View view) {
+        // get prompts.xml view
+        LayoutInflater li = LayoutInflater.from(this);
+        View promptsView = li.inflate(R.layout.diagloguebox, null);
+
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                this);
+
+        // set prompts.xml to alertdialog builder
+        alertDialogBuilder.setView(promptsView);
+
+        final EditText userInput = (EditText) promptsView
+                .findViewById(R.id.editTextDialogUserInput);
+
+        // set dialog message
+        alertDialogBuilder
+                .setCancelable(false)
+                .setPositiveButton("OK",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,int id) {
+                                // get user input and set it to result
+                                // edit text
+
+                                    person_1.setText(userInput.getText());
+
+                                    // Trying Shared Prefs
+                                    person_1_name_saved = userInput.getText().toString();
+
+                                    editor.putString("Saved_person_1_name", person_1_name_saved);
+
+                                    editor.commit();
+
+                                    Log.d("Changed name to: ", person_1_name_saved);
+                                }
+
+                        })
+                .setNegativeButton("Cancel",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,int id) {
+                                dialog.cancel();
+                            }
+                        });
+
+        // create alert dialog
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // show it
+        alertDialog.show();
+    }
 }
+
+
