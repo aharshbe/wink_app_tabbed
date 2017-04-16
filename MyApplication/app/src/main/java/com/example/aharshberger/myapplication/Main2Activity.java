@@ -40,13 +40,10 @@ public class Main2Activity extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
 
         String person_1_name_send = person_1_name.getText().toString();
-
         intent.putExtra("person_1_name_sent", person_1_name_send);
 
 
-
         String person_2_name_send = person_2_name.getText().toString();
-
         intent.putExtra("person_2_name_sent", person_2_name_send);
 
 

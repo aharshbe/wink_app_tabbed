@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     int count_person1 = 1;
     int count_person2 = 1;
     int string_count_int_person_1, string_count_int_person_2;
-    SharedPreferences pref, pref_names;
+    SharedPreferences pref;
     SharedPreferences.Editor editor, editor_names;
     Intent intent;
 
@@ -30,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        pref_names = getApplicationContext().getSharedPreferences("MyPref_names", MODE_PRIVATE);
-        editor_names = pref_names.edit();
+        pref = getApplicationContext().getSharedPreferences("prefs", MODE_PRIVATE);
+        editor_names = pref.edit();
 
          intent = getIntent();
          String name1_received_sp = intent.getStringExtra("person_1_name_sent");
@@ -42,8 +42,6 @@ public class MainActivity extends AppCompatActivity {
 
          editor_names.commit();
 
-         Log.d("checking name", pref_names.getString("Name1_saved","Austin"));
-
 
         SharedPreferences prefs_names = PreferenceManager.getDefaultSharedPreferences(this);
         if (prefs_names.getBoolean("MyPref_names", true)) {
@@ -51,8 +49,8 @@ public class MainActivity extends AppCompatActivity {
             person_1 = (TextView) findViewById(R.id.person_1);
             person_2 = (TextView) findViewById(R.id.person_2);
 
-            String person_1_name_saved = pref_names.getString("Name1_saved","Austin");
-            String person_2_name_saved = pref_names.getString("Name2_saved","Bryan");
+            String person_1_name_saved = pref.getString("Name1_saved",null);
+            String person_2_name_saved = pref.getString("Name2_saved",null);
 
             person_1.setText(person_1_name_saved);
             person_2.setText(person_2_name_saved);
