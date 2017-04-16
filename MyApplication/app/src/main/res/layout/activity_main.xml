@@ -16,7 +16,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.009" />
+        app:layout_constraintVertical_bias="0.009"
+        android:onClick="creatingnewinstance"/>
 
     <Button
         android:id="@+id/reset_person_2"
@@ -123,8 +124,7 @@
         app:layout_constraintVertical_bias="0.207"
         android:textColor="#ad1a2c"
         android:textSize="35sp"
-        android:textStyle="bold"
-        android:fontFamily="cursive"/>
+        android:onClick="clickingTextViewP2"/>
 
     <TextView
         android:id="@+id/person_1"
@@ -139,8 +139,7 @@
         app:layout_constraintVertical_bias="0.208"
         android:textColor="#ad1a2c"
         android:textSize="35sp"
-        android:textStyle="bold"
-        android:fontFamily="cursive"/>
+        android:onClick="clickingTextViewP1"/>
 
     <TextView
         android:layout_width="50dp"
