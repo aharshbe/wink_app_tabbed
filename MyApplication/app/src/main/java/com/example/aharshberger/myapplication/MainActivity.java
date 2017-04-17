@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         person_1 = (TextView) findViewById(R.id.person_1);
-        person_2 = (TextView) gfindViewById(R.id.person_2);
+        person_2 = (TextView) findViewById(R.id.person_2);
         person_1_count = (TextView) findViewById(R.id.Person_1_Count);
         person_2_count = (TextView) findViewById(R.id.Person_2_Count);
 
