@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
         person_1 = (TextView) v.findViewById(R.id.person_1);
         person_2 = (TextView) v.findViewById(R.id.person_2);
         person_1_count = (TextView) v.findViewById(R.id.Person_1_Count);
-        person_2_count = (TextView) v. findViewById(R.id.Person_2_Count);
+        person_2_count = (TextView) v.findViewById(R.id.Person_2_Count);
 
         // Creating Shared Prefs
 
@@ -191,11 +191,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void clicking_reset_person_2(View view) {
-        LayoutInflater inflater = (LayoutInflater)
-                this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-        ViewGroup v = (ViewGroup)inflater.inflate(R.layout.fragment_main, null, false);
-        person_2_count = (TextView) v.findViewById(R.id.Person_2_Count);
+     ;
+        person_2_count = (TextView) findViewById(R.id.Person_2_Count);
 
         count_person2 = 0;
 
@@ -252,12 +249,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void clicking_wink_person_2(View view) {
-        LayoutInflater inflater = (LayoutInflater)
-                this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        ViewGroup v = (ViewGroup)inflater.inflate(R.layout.fragment_main, null, false);
 
-        person_2_count = (TextView) v.findViewById(R.id.Person_2_Count);
+        person_2_count = (TextView) findViewById(R.id.Person_2_Count);
 
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -298,11 +292,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void clicking_reset_person_1(View view) {
-        LayoutInflater inflater = (LayoutInflater)
-                this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        ViewGroup v = (ViewGroup)inflater.inflate(R.layout.fragment_main, null, false);
-        person_1_count = (TextView) v.findViewById(R.id.Person_1_Count);
+        person_1_count = (TextView) findViewById(R.id.Person_1_Count);
 
         count_person1 = 0;
 
@@ -362,6 +353,8 @@ public class MainActivity extends AppCompatActivity {
                                 // get user input and set it to result
                                 // edit text
 
+                                person_1 = (TextView) findViewById(R.id.person_1);
+
                                 person_1.setText(userInput.getText());
 
                                 // Trying Shared Prefs
@@ -412,6 +405,8 @@ public class MainActivity extends AppCompatActivity {
                             public void onClick(DialogInterface dialog,int id) {
                                 // get user input and set it to result
                                 // edit text
+
+                                person_2 = (TextView) findViewById(R.id.person_2);
 
                                 person_2.setText(userInput.getText());
 
@@ -464,10 +459,7 @@ public class MainActivity extends AppCompatActivity {
                                 // get user input and set it to result
                                 // edit text
 
-                                LayoutInflater li = LayoutInflater.from(MainActivity.this);
-                                View v = li.inflate(R.layout.fragment_main, null);
-
-                                person_1 = (TextView) v.findViewById(R.id.person_1);
+                                person_1 = (TextView) findViewById(R.id.person_1);
 
                                 person_1.setText(userInput.getText());
 
@@ -520,6 +512,8 @@ public class MainActivity extends AppCompatActivity {
                             public void onClick(DialogInterface dialog,int id) {
                                 // get user input and set it to result
                                 // edit text
+
+                                person_2 = (TextView) findViewById(R.id.person_2);
 
                                 person_2.setText(userInput.getText());
 
