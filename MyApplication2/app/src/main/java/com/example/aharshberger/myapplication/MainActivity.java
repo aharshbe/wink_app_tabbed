@@ -82,6 +82,11 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
+
+
+
         boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE).getBoolean("isFirstRun", true);
         if (isFirstRun){
 
@@ -117,10 +122,24 @@ public class MainActivity extends AppCompatActivity {
         person_1_count = (TextView) v.findViewById(R.id.Person_1_Count);
         person_2_count = (TextView) v.findViewById(R.id.Person_2_Count);
 
+
+
         // Creating Shared Prefs
 
         pref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
         editor = pref.edit();
+
+
+
+
+        CheckingPrefs();
+
+
+
+
+    }
+
+    public void CheckingPrefs(){
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         if (prefs.getBoolean("MyPref", true)) {
@@ -131,9 +150,6 @@ public class MainActivity extends AppCompatActivity {
             person_1.setText(pref.getString("Saved_person_1_name", "Player 1"));
             person_2.setText(pref.getString("Saved_person_2_name", "Player 2"));
         }
-
-
-
 
     }
 
@@ -200,7 +216,6 @@ public class MainActivity extends AppCompatActivity {
 
         person_2_count.setText(string_count_reset_person2);
 
-        editor.clear();
         editor.commit();
 
 
@@ -231,6 +246,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         }else{
+
             String string_count = String.valueOf(count_person1++);
 
             person_1_count.setText(string_count);
@@ -301,7 +317,6 @@ public class MainActivity extends AppCompatActivity {
 
         person_1_count.setText(string_count_reset_person1);
 
-        editor.clear();
         editor.commit();
     }
 
