@@ -211,11 +211,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void clicking_wink_person_1(View view) {
 
-        LayoutInflater inflater = (LayoutInflater)
-                this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-        ViewGroup v = (ViewGroup)inflater.inflate(R.layout.fragment_main, null, false);
-        person_1_count = (TextView) v.findViewById(R.id.Person_1_Count);
+        person_1_count = (TextView) findViewById(R.id.Person_1_Count);
 
         //Adding logic to add shared pref to the incrementer
 
